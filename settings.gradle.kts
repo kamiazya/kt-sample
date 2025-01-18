@@ -9,3 +9,14 @@
 
 rootProject.name = "kt-sample"
 include("lib")
+
+gradle.settingsEvaluated {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "com.github.kamiazya"
+                from(components["java"])
+            }
+        }
+    }
+}
